@@ -1,0 +1,15 @@
+<div class="container" id="container-login">
+  <div class="login-container col-md-7">
+    <div id="input-container">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+        <div class="form-group">
+          <h4>Gebruikersnaam</h4>
+          <input type="text" class="form-field" name="email" style="width: 100%" ngModel>
+          <h4>Wachtwoord</h4>
+          <input type="password" class="form-field" name="password" style="width: 100%" ngModel>
+        </div>
+        <button class="btn-block btn-primary" style="height: 50px">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
