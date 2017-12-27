@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Blog} from 'models/Blog';
-import {BlogDataservice} from '../../app/database/blog.dataservice';
-import {UserDataservice} from '../../app/database/user.dataservice';
+import {LiveBlogService} from '../../services/BlogService/LiveBlogService';
+import {LiveUserService} from '../../services/UserService/LiveUserService';
 import {User} from '../../models/User';
 import {Router} from '@angular/router';
 
@@ -16,8 +16,8 @@ export class BlogComponent implements OnInit {
   private users: User[];
 
   constructor(private router: Router,
-              private blogData: BlogDataservice,
-              private userData: UserDataservice) {
+              private blogData: LiveBlogService,
+              private userData: LiveUserService) {
     this.userData.getAll().subscribe(result => this.users = result);
   }n
 
@@ -36,7 +36,7 @@ export class BlogComponent implements OnInit {
 
     console.log(JSON.stringify(this.blog));
 
-    this.blogData.create(this.blog).subscribe(result => console.log(result));
+    this.blogData.post(this.blog).subscribe(result => console.log(result));
 
     this.router.navigate(['detail-page']);
   }

@@ -1,0 +1,24 @@
+<header></header>
+<br>
+<div class="container">
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Door</th>
+            <th>Titel</th>
+            <th>School</th>
+            <th>studie route</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class='clickable-row' [routerLink]="['../blog']" *ngFor="let internship of internshipBlog">
+            <td>{{internship.blog.creator.firstName}}</td>
+            <td>{{internship.blog.title}}</td>
+            <td>{{internship.institution.name}}</td>
+            <td>{{internship.internshipRoute.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+</div>

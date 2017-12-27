@@ -8,19 +8,21 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {routing} from 'app/app.routes';
 import { BlogComponent } from 'components/blog/blog.component';
-import {HttpClientService} from './database/HttpClientService';
+import {HttpClientService} from '../services/HttpClientService';
 
 // Developed components
 import {TinyEditorComponent} from 'components/tiny-editor/tiny-editor.component';
 import {HeaderComponent} from 'components/header/header.component';
 import {LoginComponent} from '../components/login/login.component';
 import {DetailComponent} from '../components/detail-page/detail.component'
+import { ForumComponent } from '../components/forum/forum.component';
 
 // DataServices
-import {LoginDataservice} from './database/login.dataservice';
-import {BlogDataservice} from './database/blog.dataservice';
-import {UserDataservice} from './database/user.dataservice';
-import { SchoolService } from 'app/database/school.dataservice';
+import {LiveBlogService} from '../services/BlogService/LiveBlogService';
+import {LiveUserService} from '../services/UserService/LiveUserService';
+import {LiveInstitutionService } from '../services/InstitutionService/LiveInstitutionService';
+import { LiveInternshipService } from 'services/InternshipService/LiveInternshipService';
+
 
 // QR Code
 //import { QRCodeModule } from 'angular2-qrcode';
@@ -33,6 +35,7 @@ import { SchoolService } from 'app/database/school.dataservice';
     BlogComponent,
     LoginComponent,
     DetailComponent,
+    ForumComponent,
   ],
   imports: [
     routing,
@@ -43,10 +46,10 @@ import { SchoolService } from 'app/database/school.dataservice';
 //    QRCodeModule,
   ],
   providers: [HttpClientService,
-    LoginDataservice,
-    BlogDataservice,
-    UserDataservice,
-    SchoolService
+    LiveBlogService,
+    LiveUserService,
+    LiveInstitutionService,
+    LiveInternshipService
   ],
   bootstrap: [AppComponent]
 })
