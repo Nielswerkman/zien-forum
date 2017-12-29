@@ -2,6 +2,10 @@
     border: 1px solid black;
 } */
 
+body {
+    font-family: Arial;
+}
+
 #blog-head-image {
     height: 350px;
     padding-left: 10%;
