@@ -14,10 +14,10 @@ import { IInternshipService } from 'services/InternshipService/IInternshipServic
 export class LiveInternshipService implements IInternshipService {
 
     post(object: Internship) {
-        return this.http.post(this.Url + object)
+        return this.http.post(this.Url , object)
     }
     put(object: Internship) {
-        return this.http.put(this.Url + object)
+        return this.http.put(this.Url , object)
     }
     get(id: number): Observable<Internship> {
         return Observable.from(this.http.get(this.Url + id).map((res: Response) => res.json()));

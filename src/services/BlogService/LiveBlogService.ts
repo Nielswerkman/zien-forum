@@ -13,10 +13,10 @@ import { IBlogService } from "services/BlogService/IBlogService";
 export class LiveBlogService implements IBlogService {
 
     post(object: Blog) {
-        return this.http.post(this.Url + object)
+        return this.http.post(this.Url , object)
     }
     put(object: Blog) {
-        return this.http.put(this.Url + object)
+        return this.http.put(this.Url , object)
     }
     get(id: number): Observable<Blog> {
         return Observable.from(this.http.get(this.Url + id).map((res: Response) => res.json()));

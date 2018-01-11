@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 
       // alert('Succesvol ingelogd');
       console.log('User successfully logged in');
-      this.router.navigate(['blog']);
+      this.router.navigate(['forum']);
     }
   }
 }

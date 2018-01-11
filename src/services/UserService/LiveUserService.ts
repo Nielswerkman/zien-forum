@@ -14,14 +14,14 @@ export class LiveUserService implements IUserService {
   }
     
     login(username: string, password: string): Observable<User> {
-      return Observable.from(this.http.login(this.Url, {email: username, password: password}).map((res: Response) => res.json()));
+      return Observable.from(this.http.login(this.Url + "login", username, password).map((res: Response) => res.json()));
     }
 
     post(object: User) {
-        return this.http.post(this.Url + object)
+        return this.http.post(this.Url , object)
     }
     put(object: User) {
-        return this.http.put(this.Url + object)
+        return this.http.put(this.Url , object)
     }
     get(id: number): Observable<User> {
         return Observable.from(this.http.get(this.Url + id).map((res: Response) => res.json()));
