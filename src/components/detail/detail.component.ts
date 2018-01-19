@@ -17,7 +17,6 @@ export class DetailComponent implements OnInit {
   internship: Internship;
   internships: Internship[] = [];
 
-
   constructor(private route: ActivatedRoute,
               private blogService: LiveBlogService,
               private internshipService: LiveInternshipService) {
