@@ -14,7 +14,7 @@ import {HttpClientService} from '../services/HttpClientService';
 import {TinyEditorComponent} from 'components/tiny-editor/tiny-editor.component';
 import {HeaderComponent} from 'components/header/header.component';
 import {LoginComponent} from '../components/login/login.component';
-import {DetailComponent} from '../components/detail-page/detail.component'
+import {DetailComponent} from '../components/detail/detail.component'
 import { ForumComponent } from '../components/forum/forum.component';
 
 // DataServices

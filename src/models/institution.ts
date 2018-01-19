@@ -1,3 +1,5 @@
+import {Location} from './Location';
+
 export class Institution {
   active: boolean;
   city: string;
@@ -10,8 +12,9 @@ export class Institution {
   phoneNumber: string;
   street: string;
   url: string;
+  zipCode: string;
 
-  constructor(active: boolean, city: string, country: string, email: string, houseNumber: string, id: number, location: Location, name: string, phoneNumber: string, street: string, url: string) {
+  constructor(active?: boolean, city?: string, country?: string, email?: string, houseNumber?: string, id?: number, location?: Location, name?: string, phoneNumber?: string, street?: string, url?: string, zipCode?: string) {
     this.active = active;
     this.city = city;
     this.country = country;
@@ -23,5 +26,6 @@ export class Institution {
     this.phoneNumber = phoneNumber;
     this.street = street;
     this.url = url;
+    this.zipCode = zipCode;
   }
 }
