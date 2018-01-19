@@ -28,9 +28,7 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
     // this.blogData.getBlogById(0).subscribe(request => this.blog = request);
     this.internshipService.getAll().subscribe(result => {
-      this.internship = result.filter( internship => internship.blog.creator.id == this.user.id)[0]
-      console.log("LOG?" + JSON.stringify(this.internship))
-
+      this.internship = result.filter( internship => internship.blog.creator.id === this.user.id)[0]
     })
   }
 

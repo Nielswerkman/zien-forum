@@ -25,7 +25,7 @@ export class ForumComponent implements OnInit {
     })
   }
 
-  goToDetailPage(id: number){
+  goToDetailPage(id: number) {
     this.router.navigate(['../detail-page/', id]);
   }
 

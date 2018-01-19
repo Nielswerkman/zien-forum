@@ -15,7 +15,7 @@ export class DetailComponent implements OnInit {
     id: number;
     private sub: any;
 
-    private blog:Blog;
+    private blog: Blog;
 
     constructor(private blogService: LiveBlogService, private route: ActivatedRoute) {
         this.route.params.subscribe( params => console.log(params))
@@ -24,14 +24,8 @@ export class DetailComponent implements OnInit {
     ngOnInit() {
 
         this.id = +this.route.snapshot.params['id'];
-        console.log(this.id);
-        
-
-        this.blogService.get(this.id).subscribe(r =>{ 
-            this.blog = r, 
-            console.log(r)
-        
+        this.blogService.get(this.id).subscribe(r => {
+            this.blog = r
         });
-        
     }
 }
