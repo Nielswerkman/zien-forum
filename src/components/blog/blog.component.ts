@@ -37,6 +37,9 @@ export class BlogComponent implements OnInit {
   }
 
   onSubmit() {
+    if (localStorage.getItem('currentUser') === 'null') {
+      this.router.navigate(['/login'])
+    }
     this.internship.blog.summary = null;
     this.internship.blog.content = this.blog.content;
     this.internship.blog.creator = this.user;

@@ -6,7 +6,8 @@ import {DetailComponent} from '../components/detail/detail.component';
 import {ForumComponent} from '../components/forum/forum.component';
 
 const APP_ROUTES: Routes = [
-  {path: '', component: LoginComponent},
+  {path: '', component: ForumComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'blog', component: BlogComponent},
   {path: 'detail/:id', component: DetailComponent},
   {path: 'forum', component: ForumComponent}

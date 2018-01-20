@@ -1,9 +1,15 @@
-#masthead {
-  display: none;
-}
-
-
 h4 {
   font-weight: bold;
   color: #595959;
+}
+
+.login-block {
+  margin: auto;
+  width: 50%;
+}
+
+.image-container
+{
+  margin-top: 10vh;
+  width:100%;
 }

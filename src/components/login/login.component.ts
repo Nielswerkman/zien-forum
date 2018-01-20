@@ -1,47 +1,32 @@
-import {Component, OnInit} from '@angular/core';
-import {LiveUserService} from '../../services/UserService/LiveUserService';
-import {User} from '../../models/User';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { User } from 'models/user';
+
+import { LiveUserService } from 'services/UserService/LiveUserService';
 
 @Component({
-  selector: 'app-login-form',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
-  private user: User;
+  private user: User
 
-  constructor(private loginService: LiveUserService, private router: Router) {
-  }
+  email: String = '';
+  password: String = '';
 
-  ngOnInit() {
-    localStorage.setItem('currentUser', null);
-  }
+  constructor(private userService: LiveUserService, private router: Router) { }
 
-  onSubmit(input) {
-    this.loginService.login(input.email, input.password)
-      .subscribe(
-        result => this.login(result)
-      );
-  }
+  ngOnInit() { }
 
-  private login(res) {
-    this.user = res;
-
-    console.log(this.user.email);
-
-    if (this.user.email == null) {
-      // alert('Gebruiker niet gevonden.');
-      return null;
-    } else {
+  loginUser() {
+    this.userService.login(this.email, this.password).subscribe(res => {
       this.user = res;
       localStorage.setItem('currentUser', JSON.stringify(this.user));
-
-      // alert('Succesvol ingelogd');
-      console.log('User successfully logged in');
-      this.router.navigate(['forum']);
-    }
+      this.router.navigate(['/blog']);
+    },
+      err => alert('Gebruiker niet gevonden, mogelijk is de email of het wachtwoord verkeerd.'));
   }
 }

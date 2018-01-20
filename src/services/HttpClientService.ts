@@ -18,24 +18,24 @@ export class HttpClientService {
         return this.http.get(url, { headers: headers });
     }
 
-    post(url, body){
+    post(url, body) {
         const headers = new Headers();
         this.authorize(headers);
 
         return this.http.post(url, body, {headers: headers});
     }
 
-    put(url, body){
+    put(url, body) {
         const headers = new Headers();
         this.authorize(headers);
 
         return this.http.put(url, body, {headers: headers});
     }
 
-    login(url, email: String, password: String){
+    login(url, body) {
         const headers = new Headers();
         this.authorize(headers);
 
-        return this.http.post(url,{email: email, password: password});
+        return this.http.post(url, body, {headers: headers});
     }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -6,12 +7,18 @@ import { Component, OnInit, AfterViewInit, OnDestroy, Input, Output, EventEmitte
   templateUrl: './tiny-editor.component.html',
   styleUrls: ['./tiny-editor.component.css']
 })
-export class TinyEditorComponent implements AfterViewInit, OnDestroy {
+export class TinyEditorComponent implements AfterViewInit, OnDestroy, OnInit {
   @Input() elementId: String;
   @Output() onEditorKeyup = new EventEmitter<any>();
   editor;
 
-  constructor() {  }
+  constructor(private router: Router) {  }
+
+  ngOnInit() {
+    if (localStorage.getItem('currentUser') === 'null') {
+      this.router.navigate(['/login'])
+    }
+  }
 
   ngOnDestroy(): void {
     tinymce.remove(this.editor);

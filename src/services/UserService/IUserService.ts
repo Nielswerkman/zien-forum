@@ -3,5 +3,5 @@ import {User} from '../../models/user';
 import {Observable} from 'rxjs/Observable';
 
 export interface IUserService extends IGenericService<User> {
-  login(username: string, password: string): Observable<User>;
+  login(email: String, password: String): Observable<User>;
 }
