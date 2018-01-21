@@ -35,7 +35,6 @@ export class TinyEditorComponent implements AfterViewInit, OnDestroy, OnInit {
         editor.on('keyup', () => {
           const content = editor.getContent();
           this.onEditorKeyup.emit(content);
-          // console.log(content);
         });
       },
     });

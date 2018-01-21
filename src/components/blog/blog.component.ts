@@ -1,11 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {Blog} from 'models/Blog';
-import {LiveBlogService} from '../../services/BlogService/LiveBlogService';
-import {LiveUserService} from '../../services/UserService/LiveUserService';
-import {User} from '../../models/User';
+import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { LiveInternshipService } from 'services/InternshipService/LiveInternshipService';
+
+import { Blog } from 'models/Blog';
+import { User } from '../../models/User';
 import { Internship } from 'models/internship';
+
+import { LiveBlogService } from 'services/BlogService/LiveBlogService';
+import { LiveUserService } from 'services/UserService/LiveUserService';
+import { LiveInternshipService } from 'services/InternshipService/LiveInternshipService';
 
 @Component({
   selector: 'app-blog',
@@ -44,11 +46,7 @@ export class BlogComponent implements OnInit {
     this.internship.blog.content = this.blog.content;
     this.internship.blog.creator = this.user;
     this.internship.blog.title = this.blog.title;
-
-    // console.log(JSON.stringify(this.blog));
-
-    console.log(this.internship)
-    this.internshipService.put(this.internship).subscribe(result => console.log(result));
+    this.internshipService.put(this.internship).subscribe();
 
     this.router.navigate(['forum']);
   }

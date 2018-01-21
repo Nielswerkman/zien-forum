@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Internship } from 'models/internship';
-import { LiveInternshipService } from 'services/InternshipService/LiveInternshipService';
 import { Router } from '@angular/router';
+
+import { Internship } from 'models/internship';
+
+import { LiveInternshipService } from 'services/InternshipService/LiveInternshipService';
 
 @Component({
   selector: 'app-forum',
@@ -16,12 +18,11 @@ export class ForumComponent implements OnInit {
   constructor(private internshipService: LiveInternshipService, private router: Router) { }
 
   ngOnInit() {
-      this.internshipService.getAll().subscribe(res => {
-      this.internships = res,
+    this.internshipService.getAll().subscribe(res => {
+      this.internships = res;
       this.internshipBlog = this.internships.filter(
         internship => internship.blog != null
       )
-      console.log(this.internshipBlog)
     })
   }
 

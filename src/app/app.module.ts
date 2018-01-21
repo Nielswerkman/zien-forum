@@ -23,10 +23,6 @@ import {LiveUserService} from '../services/UserService/LiveUserService';
 import {LiveInstitutionService } from '../services/InstitutionService/LiveInstitutionService';
 import { LiveInternshipService } from 'services/InternshipService/LiveInternshipService';
 
-
-// QR Code
-//import { QRCodeModule } from 'angular2-qrcode';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,8 +38,7 @@ import { LiveInternshipService } from 'services/InternshipService/LiveInternship
     BrowserModule,
     BrowserModule,
     FormsModule,
-    HttpModule,
-//    QRCodeModule,
+    HttpModule
   ],
   providers: [HttpClientService,
     LiveBlogService,

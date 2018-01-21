@@ -1,9 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {LiveBlogService} from '../../services/BlogService/LiveBlogService';
-import {Blog} from '../../models/blog';
-import {LiveInternshipService} from '../../services/InternshipService/LiveInternshipService';
-import {Internship} from '../../models/internship';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Blog } from 'models/blog';
+import { Internship } from 'models/internship';
+
+import { LiveBlogService } from 'services/BlogService/LiveBlogService';
+import { LiveInternshipService } from 'services/InternshipService/LiveInternshipService';
 
 @Component({
   selector: 'app-detail',
@@ -18,14 +20,13 @@ export class DetailComponent implements OnInit {
   internships: Internship[] = [];
 
   constructor(private route: ActivatedRoute,
-              private blogService: LiveBlogService,
-              private internshipService: LiveInternshipService) {
+    private blogService: LiveBlogService,
+    private internshipService: LiveInternshipService) {
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = +params['id'];
-      console.log('Found ID from route: ' + this.id);
 
       this.internshipService.getAll().subscribe(res => {
         this.internships = res;
@@ -33,14 +34,12 @@ export class DetailComponent implements OnInit {
         for (const inter of this.internships) {
           if (inter.blog.id === this.id) {
             this.internship = inter;
-            console.log(inter);
           }
         }
       });
 
       this.blogService.get(this.id).subscribe(res => {
-        this.blog = res,
-          console.log('Found Blog: ' + JSON.stringify(res));
+        this.blog = res;
       });
 
     });
