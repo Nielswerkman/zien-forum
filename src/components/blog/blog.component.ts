@@ -23,7 +23,8 @@ export class BlogComponent implements OnInit {
   constructor(private router: Router,
               private blogData: LiveBlogService,
               private userData: LiveUserService,
-              private internshipService: LiveInternshipService) {
+              private internshipService: LiveInternshipService,
+              private blogService: LiveBlogService) {
     this.user = JSON.parse(localStorage.getItem('currentUser'));
   }
 
@@ -49,9 +50,9 @@ export class BlogComponent implements OnInit {
     this.internship.blog.title = this.blog.title;
     this.internship.blog.accepted = false;
     this.internship.blog.rejected = false;
-    console.log(this.internship);
 
     this.internshipService.put(this.internship).subscribe();
+    this.blogService.put(this.internship.blog).subscribe();
 
     this.router.navigate(['/forum']);
   }
