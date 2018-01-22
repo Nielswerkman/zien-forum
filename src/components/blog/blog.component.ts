@@ -43,11 +43,14 @@ export class BlogComponent implements OnInit {
 
   onSubmit() {
     this.internship.blog.summary = null;
+    this.internship.blog.date = new Date();
     this.internship.blog.content = this.blog.content;
     this.internship.blog.creator = this.user;
     this.internship.blog.title = this.blog.title;
     this.internship.blog.accepted = false;
     this.internship.blog.rejected = false;
+    console.log(this.internship);
+
     this.internshipService.put(this.internship).subscribe();
 
     this.router.navigate(['/forum']);
