@@ -21,7 +21,7 @@ export class ForumComponent implements OnInit {
     this.internshipService.getAll().subscribe(res => {
       this.internships = res;
       this.internshipBlog = this.internships.filter(
-        internship => internship.blog != null
+        internship => internship.blog != null && internship.blog.accepted === true
       )
     })
   }

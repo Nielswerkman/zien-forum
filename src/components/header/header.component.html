@@ -1,8 +1,9 @@
-<div id="header">
+<!-- <div id="header">
   <div class="row">
     <div class="col-md-5 nav-column">
+      <a class="navbar-brand">Zien Forum</a>
       <ul>
-        <li><a [routerLink]="['/blog']">Create blog</a></li>
+        <li><a [routerLink]="['/blog']">Blog aanmaken</a></li>
         <li><a [routerLink]="['/forum']">Forum</a></li>
       </ul>
     </div>
@@ -12,9 +13,37 @@
         <span class="headertext">International</span></a>
       </div>
     </div>
-    <div class="col-md-5">
-
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-2">
+      <a [routerLink]="['/login']" (click)="logoutUser()">Uitloggen</a>
     </div>
   </div>
-  
+</div> -->
+
+<div id="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 center">
+        <nav class="nav">
+          <a class="nav-link" [routerLink]="['/forum']">
+            <i class="fa fa-list"></i> Overzicht</a>
+          <a class="nav-link" [routerLink]="['/blog']">
+            <i class="fa fa-pencil-square-o"></i> Blog aanmaken</a>
+        </nav>
+      </div>
+      <div class="col-md-2">
+        <div class="image_container center">
+          <img src="../../assets/img/fontys-logo-scrappedfromwebsite.png" />
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-md-2 center">
+        <nav class="nav">
+          <a class="nav-link" (click)="logoutUser()">
+            <i class="fa fa-sign-out"></i> Uitloggen</a>
+        </nav>
+      </div>
+    </div>
+  </div>
 </div>

@@ -19,7 +19,7 @@
 }
 .image_container img {
   /* FONTYS LOGO SCALING, 100% is full size and 30% is the same size as the Fontys websites */
-  width: 30%;
+  width: 70%;
 }
 
 .headertext {
@@ -39,10 +39,14 @@
   height: 100%;
 }
 
-a {
+nav a {
   text-decoration: none;
   padding-right: 16px;
   color: white;
+}
+
+nav a:hover {
+  color: gray;
 }
 
 li {
