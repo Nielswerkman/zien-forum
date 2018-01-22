@@ -29,6 +29,9 @@ export class BlogComponent implements OnInit {
 
   ngOnInit() {
     // this.blogData.getBlogById(0).subscribe(request => this.blog = request);
+    if (localStorage.getItem('currentUser') === 'null') {
+      this.router.navigate(['/login'])
+    }
     this.internshipService.getAll().subscribe(result => {
       this.internship = result.filter( internship => internship.blog.creator.id === this.user.id)[0]
     })
@@ -39,15 +42,14 @@ export class BlogComponent implements OnInit {
   }
 
   onSubmit() {
-    if (localStorage.getItem('currentUser') === 'null') {
-      this.router.navigate(['/login'])
-    }
     this.internship.blog.summary = null;
     this.internship.blog.content = this.blog.content;
     this.internship.blog.creator = this.user;
     this.internship.blog.title = this.blog.title;
+    this.internship.blog.accepted = false;
+    this.internship.blog.rejected = false;
     this.internshipService.put(this.internship).subscribe();
 
-    this.router.navigate(['forum']);
+    this.router.navigate(['/forum']);
   }
 }
