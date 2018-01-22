@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.email, this.password).subscribe(res => {
       this.user = res;
       localStorage.setItem('currentUser', JSON.stringify(this.user));
-      this.router.navigate(['/blog']);
+      this.router.navigate(['/']);
     },
       err => alert('Gebruiker niet gevonden, mogelijk is de email of het wachtwoord verkeerd.'));
   }
